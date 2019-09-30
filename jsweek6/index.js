@@ -25,29 +25,50 @@ foo(bar);
 // // and call sayFive, sayThree, sayThree, sayFive  - please make sure you see why these calls are made before you start coding
 // function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
     
-    function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
-    var myarray=[10,11,12,13,14,15,16];
-    for(var i=startIndex; i<(stopIndex-startIndex).length; i++){
+//     function threeFive(startIndex, stopIndex, threeCallback, fiveCallback) {
+//     var myarray=[10,11,12,13,14,15,16];
+//     for(var i=startIndex; i<(stopIndex-startIndex).length; i++){
     
-    if(myarray[i]/3==0){
-        function threeCallback(){
-            console.log("it can be divided by 3")
-        }
-        threeCallback();
-    }
-    else if(myarray[i]/5==0){
-        function fiveCallback(){
-            console.log("it can be divided by 5")
-    }
-    fiveCallback();
+//     if(myarray[i]/3==0){
+//         function threeCallback(){
+//             console.log("it can be divided by 3")
+//         }
+//         threeCallback();
+//     }
+//     else if(myarray[i]/5==0){
+//         function fiveCallback(){
+//             console.log("it can be divided by 5")
+//     }
+//     fiveCallback();
+// }
+//     else{
+//         myarray.push=myarray[i];
+//     }
+function threeCallback() {
+    console.log('sayThree');
 }
-    else{
-        myarray.push=myarray[i];
+function fiveCallback() {
+    console.log('sayFive');
+}
+function myFunction(startIndex, endIndex, threeCallback, fiveCallback) {
+    const myArray = [];
+    
+    for(let i = startIndex; i <= endIndex; i++) {
+        myArray.push(i);
     }
+    myArray.forEach((elem) => {
+        if (elem % 3 === 0) {
+            threeCallback();
+        }
+        if (elem % 5 === 0) {
+            fiveCallback();
+        }
+    });
+}
      // start at beginning of array and check if you should call threeCallback or fiveCallback or go on to next
 
-}}
-threeFive();
+
+myFunction(10,16,threeCallback,fiveCallback);
 
 
 
